@@ -2,6 +2,7 @@
 
 .vscode
 node_modules
+client/
 __pycache__/
 *.py[cod]
 *$py.class

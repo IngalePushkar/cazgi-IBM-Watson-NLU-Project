@@ -1,7 +1,8 @@
 const express = require("express");
 const naturalLanguageUnderstandingV1 = require("ibm-watson/natural-language-understanding/v1");
 const { IamAuthenticator } = require("ibm-watson/auth");
-
+const dotenv = require('dotenv');
+dotenv.config();
 const app = new express();
 
 /*This tells the server to use the client 
@@ -29,9 +30,9 @@ function getNLUInstance() {
   const naturalLanguageUnderstanding = new naturalLanguageUnderstandingV1({
     version: "2022-05-02",
     authenticator: new IamAuthenticator({
-      apikey: api_key,
+      apikey: process.env.API_KEY,
     }),
-    serviceUrl: api_url,
+    serviceUrl: process.env.API_URL,
   });
   return naturalLanguageUnderstanding;
 }
